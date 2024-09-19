@@ -1,4 +1,4 @@
-//import "./style.css";
+import "./style.css";
 import React from 'react';
 
 const Alert = ({ isDefaultShown = false, timeout = 250, type, message }) => {
