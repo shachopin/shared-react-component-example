@@ -1,10 +1,10 @@
 import "./style.css";
 import React from 'react';
 
-const Alert = ({ isDefaultShown = false, timeout = 250, type, message }) => {
+const Alert = ({ isDefaultShown = false, timeout = 1500, type, message }) => {
   const [isShown, setIsShown] = React.useState(isDefaultShown);
   const [isLeaving, setIsLeaving] = React.useState(false);
-
+  //此题和debounce无关
   let timeoutId = null;
 
   React.useEffect(() => {
@@ -15,11 +15,11 @@ const Alert = ({ isDefaultShown = false, timeout = 250, type, message }) => {
   }, [isDefaultShown, timeout, timeoutId]);
 
   const closeAlert = () => {
-    setIsLeaving(true);
+    setIsLeaving(true);  //start fading using animation frame
     timeoutId = setTimeout(() => {
       setIsLeaving(false);
-      setIsShown(false);
-    }, timeout);
+      setIsShown(false); //totally gone
+    }, timeout); //therefore the timeout needs to be equal to the fading animation time to make it look better
   };
 
   return (

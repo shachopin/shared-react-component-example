@@ -26,7 +26,7 @@
 }
 
 .alert.leaving {
-  animation: leave 0.5s forwards;
+  animation: leave 1.5s forwards;
 }
 
 .alert .close {
